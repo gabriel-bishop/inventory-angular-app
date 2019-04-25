@@ -5,6 +5,7 @@ const productSchema = mongoose.Schema({
   description: String,
   sku: String,
   quantity: Number,
+  date: Number,
   userId: {type: mongoose.Schema.Types.Number, ref: 'UserModel'},
 }, {collection: 'product'});
 module.exports = productSchema;

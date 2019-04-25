@@ -1,0 +1,55 @@
+<div class="row ml-1 mr-1 mt-5" style="text-align: center;">
+  <div id="home">
+    <a routerLink="/"><i class="fa fa-3x fa-home"></i></a>
+  </div>
+  <div id="profile">
+    <h1>INVENTORY</h1>
+  </div>
+  <div id="check">
+    <a *ngIf="loggedIn" routerLink="/profile" (click)="navToProfile()"><i class="fa fa-3x fa-user"></i></a>
+  </div>
+
+  <button *ngIf="loggedIn" type="button" class="btn btn-primary btn-lg btn-block" (click)="navToScan()">SCAN</button>
+</div>
+
+
+<!--  DROP DOWN WITH ALL USERS-->
+
+
+  <!--  ROW:  DATE    DATE    SORT   -->
+  <!--  ROW:  DROPDOWN # Per PAGE       BACK      FORWARD   -->
+
+
+
+  <!--  LIST:  item name       Quantity      edit(product page)-->
+
+
+  <div class="text-center mt-3 ">
+
+    <div class="row mt-1 ml-2 mr-2">
+      <div class="col-8">
+        <p>PRODUCT</p>
+      </div>
+      <div class="col-2" >
+        <p>QUANTITY</p>
+      </div>
+
+    </div>
+
+      <div class="row mt-1 ml-2 mr-2"  *ngFor="let item of allItems">
+        <div class="col-8" style="border: 1px solid darkgray">
+          <p>{{item.description}}</p>
+
+        </div>
+        <div class="col-2" style="border: 1px solid darkgray">
+          <p>{{item.quantity}}</p>
+        </div>
+        <div class="col-2" style="border: 1px solid darkgray">
+          <button>EDIT</button>
+        </div>
+      </div>
+  </div>
+
+
+
+

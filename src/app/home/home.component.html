@@ -1,0 +1,17 @@
+<div class="row ml-1 mr-1 mt-5" style="text-align: center;">
+  <div id="home">
+  </div>
+  <div id="profile">
+    <h1>HOME</h1>
+  </div>
+  <div id="check">
+    <a *ngIf="isLoggedIn" routerLink="/profile" (click)="navToProfile()"><i class="fa fa-3x fa-user"></i></a>
+  </div>
+
+
+  <button *ngIf="!isLoggedIn" type="button" class="btn btn-primary btn-lg btn-block" (click)="navToLogin()">LOGIN</button>
+  <button *ngIf="!isLoggedIn" type="button" class="btn btn-success btn-lg btn-block" (click)="navToRegister()">REGISTER</button>
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)="navToInventory()">INVENTORY</button>
+
+
+</div>

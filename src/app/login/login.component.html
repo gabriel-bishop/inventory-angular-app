@@ -1,0 +1,41 @@
+
+<div class="row ml-1 mr-1 mt-5" style="text-align: center;">
+
+  <div id="home">
+    <a routerLink="/"><i class="fa fa-3x fa-home"></i></a>
+  </div>
+  <div id="profile">
+    <h1>LOGIN</h1>
+  </div>
+  <div id="check">
+  </div>
+
+  <div class="container-fluid">
+  <form class="border-dark">
+    <div class="form-group">
+      <input placeholder="Username" type="text" class="form-control" [(ngModel)]="username"
+             [ngModelOptions]="{standalone: true}"/>
+    </div>
+
+    <div class="form-group">
+      <input placeholder="Password" type="password" class="form-control" [(ngModel)]="password"
+             [ngModelOptions]="{standalone: true}"/>
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary mt-2 form-control"
+            (click)="loginUser()"
+    >LOGIN
+    </button>
+
+    <button type="submit"
+            class="btn btn-success form-control mt-1"
+            (click)="navToRegister()"
+    >REGISTER
+    </button>
+
+
+
+  </form>
+  </div>
+</div>

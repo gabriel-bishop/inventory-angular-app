@@ -1,0 +1,53 @@
+<div class="row ml-1 mr-1 mt-5" style="text-align: center;">
+  <div id="home">
+   <a routerLink="/"><i class="fa fa-3x fa-home"></i></a>
+  </div>
+  <div id="profile">
+    <h1>PROFILE</h1>
+  </div>
+  <div id="check">
+    <a routerLink="#" (click)="updateUser()"><i class="fa fa-3x fa-check"></i></a>
+  </div>
+
+  <div class="container-fluid">
+    <form class="border-dark">
+
+      <div class="form-group">
+        <label>Username</label>
+        <input placeholder="Username" type="text" class="form-control" [(ngModel)]="username"
+               [ngModelOptions]="{standalone: true}"/>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input placeholder="Password" type="password" class="form-control" [(ngModel)]="password"
+               [ngModelOptions]="{standalone: true}"/>
+      </div>
+
+      <div class="form-group">
+        <label>First Name</label>
+        <input placeholder="First Name" type="text" class="form-control" [(ngModel)]="firstName"
+               [ngModelOptions]="{standalone: true}"/>
+      </div>
+
+      <div class="form-group">
+        <label>Last Name</label>
+        <input placeholder="Last Name" type="text" class="form-control" [(ngModel)]="lastName"
+               [ngModelOptions]="{standalone: true}"/>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input  placeholder="Email" type="email" class="form-control" [(ngModel)]="email"
+               [ngModelOptions]="{standalone: true}"/>
+      </div>
+
+
+    </form>
+  </div>
+
+  <button type="button" class="btn btn-success btn-lg btn-block" (click)="updateUser()">UPDATE</button>
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)="navToInventory()">INVENTORY</button>
+  <button type="button" class="btn btn-danger btn-lg btn-block" (click)="logoutUser()">LOGOUT</button>
+</div>
+

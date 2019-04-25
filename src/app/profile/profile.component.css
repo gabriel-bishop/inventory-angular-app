@@ -1,0 +1,22 @@
+#home {
+  width: 10%;
+}
+
+#check {
+  width: 10%;
+}
+
+#profile {
+  width: 80%;
+}
+
+.form-group {
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}

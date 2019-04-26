@@ -22,11 +22,11 @@ export class InventoryComponent implements OnInit {
 
   constructor(private router: Router,
               private service: DbService) {
-    this.loggedIn = false;
 
   }
 
   ngOnInit() {
+    this.loggedIn = false;
 
     this.getCurrentUser();
     this.fetchUsers();

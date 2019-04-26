@@ -49,8 +49,8 @@
 
     <tr *ngFor="let product of selectedItems">
 
-      <td class="d-none d-md-table-cell">{{product.description}}</td>
-      <td class="d-none d-md-table-cell">{{product.quantity}}</td>
+      <td >{{product.description}}</td>
+      <td >{{product.quantity}}</td>
       <td *ngIf="loggedIn">
         <button (click)="navToProduct(product.sku)">EDIT</button>
       </td>

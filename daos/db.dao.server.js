@@ -19,24 +19,27 @@ truncateDatabase = () =>
 
 populateDatabase = () => {
 
-  // const comments = [
-  //   {
-  //     userId: 1,
-  //     username: 'John',
-  //     comment: 'This is a comment!'
-  //   },
-  //   {
-  //     userId: 2,
-  //     username: 'Jane',
-  //     comment: 'This is another comment!'
-  //   },
-  //   {
-  //     userId: 3,
-  //     username: 'Alice',
-  //     comment: 'This is yet another comment!'
-  //   }
-  // ];
-  // return commentsModel.insertMany(comments)
+  const comments = [
+    {
+      _id: 1002,
+      sku: "112192321",
+      description: "Cheese wheel",
+      quantity: 95,
+      userId: 155630519.3732,
+      image: "https://www.williams-sonoma.com/wsimgs/rk/images/dp/wcm/201849/0006/full-wheel-of-parmigiano-reggiano-cheese-o.jpg",
+      date: 12313123123,
+    },
+    {
+      _id: 555,
+      sku: "313190831",
+      description: "Coffee Mug",
+      quantity: 23213,
+      userId: 155630543.4028,
+      image: "https://www.notneutral.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/l/i/lino_mug_white_1080.jpg",
+      date: 38961298,
+    }
+  ];
+  return productModel.insertMany(comments)
 
   const users = [
     {

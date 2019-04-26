@@ -55,6 +55,7 @@ export class InventoryComponent implements OnInit {
       .subscribe(res => {
           if (!isNullOrUndefined(res)) {
             this.loggedIn = true;
+            console.log("is logged in")
           }
         }
       );

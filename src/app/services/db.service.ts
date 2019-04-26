@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-const heroku = 'http://localhost:5000';
+const heroku = 'https://inventory-tracker-angular.herokuapp.com/';
 
 const httpOptions = {
   headers: new HttpHeaders(),

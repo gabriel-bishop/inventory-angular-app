@@ -7,5 +7,7 @@ const productSchema = mongoose.Schema({
   quantity: Number,
   date: Number,
   userId: {type: mongoose.Schema.Types.Number, ref: 'UserModel'},
+  fields: {}
+
 }, {collection: 'product'});
 module.exports = productSchema;

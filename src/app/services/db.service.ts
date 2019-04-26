@@ -46,5 +46,15 @@ export class DbService {
     return this.httpClient.post(heroku + '/api/product', httpOptions);
   }
 
+  public findProductBySku(productId) {
+    return this.httpClient.post(heroku + '/api/product/' + productId, httpOptions);
+  }
+
+  public updateProduct(sku, product) {
+    return this.httpClient.put(heroku + '/api/product/' + sku, product, httpOptions);
+  }
+
+
+
 
 }

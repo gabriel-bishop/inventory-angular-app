@@ -7,12 +7,12 @@ const productModel = require('../data/models/product.model.server');
 truncateDatabase = () =>
   // commentsModel.remove();
 
-  userModel.countDocuments().then(
+  productModel.countDocuments().then(
     response => {
 
       // Only drop if it has any records
       if (response !== 0) {
-        mongoose.connection.collections['user'].drop();
+        mongoose.connection.collections['product'].drop();
       }
     }
   );
@@ -99,6 +99,14 @@ addProduct = product =>
 findAllProducts = () =>
   productModel.find();
 
+findProductBySku = (sku) =>
+  productModel.findOne({sku: sku});
+
+updateProduct = (sku, product) =>
+  productModel.update({sku: sku}, {$set: product});
+
+
+
 module.exports = {
   truncateDatabase,
   populateDatabase,
@@ -109,7 +117,9 @@ module.exports = {
   findUserById,
   updateUser,
   addProduct,
-  findAllProducts
+  findAllProducts,
+  findProductBySku,
+  updateProduct
 
 
 

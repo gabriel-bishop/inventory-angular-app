@@ -9,5 +9,17 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-primary btn-lg btn-block">SCAN</button>
-<button type="button" class="btn btn-danger btn-lg btn-block" (click)="navToInventory()">CANCEL</button>
+<div class="container-fluid">
+  <form class="border-dark">
+    <div class="form-group">
+      <label style="text-align: center">SKU</label>
+      <input style="align-content: center" type="text" class="form-control" [(ngModel)]="sku"
+             [ngModelOptions]="{standalone: true}"/>
+    </div>
+  </form>
+
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)="navToProduct()">SCAN</button>
+  <button type="button" class="btn btn-danger btn-lg btn-block" (click)="navToInventory()">CANCEL</button>
+
+</div>
+

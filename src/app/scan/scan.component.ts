@@ -10,11 +10,18 @@ export class ScanComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  sku: string;
+
   ngOnInit() {
+
   }
 
   navToInventory(){
     this.router.navigate(['/inventory'])
+  }
+
+  navToProduct(){
+    this.router.navigate(['/product/' + this.sku])
   }
 
 }

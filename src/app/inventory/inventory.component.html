@@ -24,31 +24,29 @@
   <!--  LIST:  item name       Quantity      edit(product page)-->
 
 
-  <div class="text-center mt-3 ">
 
-    <div class="row mt-1 ml-2 mr-2">
-      <div class="col-8">
-        <p>PRODUCT</p>
-      </div>
-      <div class="col-2" >
-        <p>QUANTITY</p>
-      </div>
 
-    </div>
+<div class="container-fluid m-1 mt-3">
+  <table class="table table-hover table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">DESCRIPTION</th>
+      <th scope="col">QUANTITY</th>
+      <th *ngIf="loggedIn" scope="col"></th>
 
-      <div class="row mt-1 ml-2 mr-2"  *ngFor="let item of allItems">
-        <div class="col-8" style="border: 1px solid darkgray">
-          <p>{{item.description}}</p>
+    </tr>
+    </thead>
+    <tbody>
 
-        </div>
-        <div class="col-2" style="border: 1px solid darkgray">
-          <p>{{item.quantity}}</p>
-        </div>
-        <div class="col-2" style="border: 1px solid darkgray">
-          <button>EDIT</button>
-        </div>
-      </div>
-  </div>
+    <tr *ngFor="let product of allItems">
+
+      <td class="d-none d-md-table-cell">{{product.description}}</td>
+      <td class="d-none d-md-table-cell">{{product.quantity}}</td>
+      <td *ngIf="loggedIn" ><button (click)="navToProduct(product.sku)">EDIT</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
 
 

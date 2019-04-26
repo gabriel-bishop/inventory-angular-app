@@ -1,0 +1,15 @@
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.block {
+  display: inline-block;
+  width: 50%;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  text-align: center;
+}

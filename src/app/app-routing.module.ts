@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'inventory', component: InventoryComponent},
   {path: 'scan', component: ScanComponent},
-  {path: 'product', component: ProductComponent},
+  {path: 'product/:sku', component: ProductComponent},
   {path: 'field', component: FieldComponent},
   {path: 'audit', component: AuditComponent}
 ];

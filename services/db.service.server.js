@@ -136,6 +136,20 @@ module.exports = app => {
       })
   }
 
+  function findProductBySku(req, res) {
+    dao.findProductBySku(req.params['sku'])
+      .then(response => {
+        res.json(response)
+      });
+  }
+
+  function updateProduct(req, res) {
+    dao.updateProduct(req.params['sku'], req.body)
+      .then(response => {
+        res.json(response);
+      });
+  }
+
   // Logos
   app.post('/api/logo/team/:tid', findLogoUrlByTeam);
   app.post('/api/logo/league/:lid', findLogoUrlByLeague);
@@ -155,5 +169,9 @@ module.exports = app => {
   app.post('/api/user/:uid', findUserById);
   app.post('/api/newproduct', createProduct);
   app.post('/api/product', findAllProducts);
+  app.post('/api/product/:sku', findProductBySku);
+  app.put('/api/product/:sku', updateProduct);
+
+
 
 };

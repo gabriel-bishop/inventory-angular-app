@@ -64,4 +64,8 @@ export class InventoryComponent implements OnInit {
     this.router.navigate(['scan'])
   }
 
+  navToProduct(pid){
+    this.router.navigate(['product/' + pid])
+  }
+
 }

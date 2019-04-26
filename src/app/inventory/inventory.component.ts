@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {DbService} from '../services/db.service';
-import {isNullOrUndefined} from "util";
+import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-inventory',
@@ -16,6 +16,8 @@ export class InventoryComponent implements OnInit {
   displayItems: any;
   itemsPerPage: number;
   sorted: boolean;
+  selectedUser: any;
+  selectedItems: any;
 
 
   constructor(private router: Router,
@@ -25,20 +27,27 @@ export class InventoryComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.getCurrentUser();
     this.fetchUsers();
     this.fillInventory();
   }
 
-  fillInventory(){
-    this.allItems = []
-    this.service.findAllProducts().subscribe(res => {
-      const entries = Object.entries(res);
+  fillInventory() {
+    this.allItems = [];
+    this.selectedItems = [];
 
-      for (let [x, product] of entries) {
-        this.allItems.push(product);
+    this.service.findAllProducts().subscribe(res => {
+      let keys = Object.keys(res);
+
+      for (let product in keys) {
+        this.allItems.push(res[product]);
+        this.selectedItems.push(res[product]);
+
       }
-    })
+      console.log(this.selectedItems);
+    });
+
   }
 
   getCurrentUser() {
@@ -52,20 +61,52 @@ export class InventoryComponent implements OnInit {
   }
 
 
-  fetchUsers(){
-    // this.users=
+  fetchUsers() {
+    this.users = [];
+    this.service.findAllUsers().subscribe(res => {
+        let entries = Object.entries(res);
+
+        for (let [x, user] of entries) {
+          this.users.push(user);
+        }
+
+        // if(this.users.length > 0){
+        //   this.selectedUser = this.users[0]._id
+        // }
+      }
+    );
   }
 
-  navToProfile(){
-    this.router.navigate(['profile'])
+  navToProfile() {
+    this.router.navigate(['profile']);
   }
 
-  navToScan(){
-    this.router.navigate(['scan'])
+  navToScan() {
+    this.router.navigate(['scan']);
   }
 
-  navToProduct(pid){
-    this.router.navigate(['product/' + pid])
+  navToProduct(pid) {
+    this.router.navigate(['product/' + pid]);
+  }
+
+  filter(){
+
+    if(this.selectedUser == "none"){
+      this.selectedItems = this.allItems;
+      return;
+    }
+    console.log("filtering")
+    this.selectedItems = [];
+
+    let keys = Object.keys(this.allItems);
+    for (let product in keys) {
+      console.log(this.allItems[product])
+      console.log(this.selectedUser)
+
+      if(this.allItems[product].userId == this.selectedUser){
+        this.selectedItems.push(this.allItems[product]);
+      }
+    }
   }
 
 }

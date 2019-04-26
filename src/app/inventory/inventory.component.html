@@ -16,15 +16,24 @@
 <!--  DROP DOWN WITH ALL USERS-->
 
 
-  <!--  ROW:  DATE    DATE    SORT   -->
-  <!--  ROW:  DROPDOWN # Per PAGE       BACK      FORWARD   -->
+<!--  ROW:  DATE    DATE    SORT   -->
+<!--  ROW:  DROPDOWN # Per PAGE       BACK      FORWARD   -->
 
 
-
-  <!--  LIST:  item name       Quantity      edit(product page)-->
-
+<!--  LIST:  item name       Quantity      edit(product page)-->
 
 
+<div class="container-fluid">
+  <label class="sbw_light">Filter by Stocker:</label><br/>
+
+  <select (change)="filter()" [(ngModel)]="selectedUser">
+    <option *ngFor="let user of users"
+            [value]="user._id">
+      {{user.username}}
+    </option>
+    <option [value]="'none'">No Filter</option>
+  </select>
+</div>
 
 <div class="container-fluid m-1 mt-3">
   <table class="table table-hover table-striped">
@@ -38,11 +47,13 @@
     </thead>
     <tbody>
 
-    <tr *ngFor="let product of allItems">
+    <tr *ngFor="let product of selectedItems">
 
       <td class="d-none d-md-table-cell">{{product.description}}</td>
       <td class="d-none d-md-table-cell">{{product.quantity}}</td>
-      <td *ngIf="loggedIn" ><button (click)="navToProduct(product.sku)">EDIT</button></td>
+      <td *ngIf="loggedIn">
+        <button (click)="navToProduct(product.sku)">EDIT</button>
+      </td>
     </tr>
     </tbody>
   </table>

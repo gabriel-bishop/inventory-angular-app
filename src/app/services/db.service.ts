@@ -54,6 +54,10 @@ export class DbService {
     return this.httpClient.put(heroku + '/api/product/' + sku, product, httpOptions);
   }
 
+  public findAllUsers() {
+    return this.httpClient.post(heroku + '/api/user', httpOptions,httpOptions);
+  }
+
 
 
 

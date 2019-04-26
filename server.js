@@ -15,12 +15,12 @@ app.use(session({
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use(express.static('./dist/soccer-tracker'));
+app.use(express.static('./dist/webdev-optional'));
 app.disable('etag');
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin",
-    "http://localhost:4200");
+    "*");
   res.header("Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods",
@@ -32,9 +32,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, './dist/soccer-tracker/index.html'));
-// });
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname,'./dist/webdev-optional/index.html'));
+});
 
 // app.use(express.static(path.join(__dirname, 'dist')));
 //

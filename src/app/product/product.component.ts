@@ -45,7 +45,6 @@ export class ProductComponent implements OnInit {
             this.router.navigate(['/login'])
           } else {
             this.loggedInUser = res['_id'];
-            console.log(this.loggedInUser)
           }
         }
       );
@@ -59,6 +58,7 @@ export class ProductComponent implements OnInit {
         this.quantity = 0;
         this.description = "Enter a description";
         this.dateRaw = new Date().getTime();
+        this.image = "";
         return;
       }
       this.productFound = true;
@@ -95,7 +95,7 @@ export class ProductComponent implements OnInit {
       sku: this.sku,
       description: this.description,
       quantity: this.quantity,
-      userId: this.userId,
+      userId: this.loggedInUser,
       date: newDate.getTime(),
       fields: this.fields,
       image: this.image
@@ -117,7 +117,7 @@ export class ProductComponent implements OnInit {
       sku: this.sku,
       description: this.description,
       quantity: this.quantity,
-      userId: this.loggedInUser['_id'],
+      userId: this.loggedInUser,
       date: newDate.getTime(),
       fields: {},
       image: ""
@@ -126,6 +126,9 @@ export class ProductComponent implements OnInit {
     this.service.createProduct(product).subscribe(res => {
       console.log(res);
     });
+
+    this.productFound = true;
+
 
   }
 
